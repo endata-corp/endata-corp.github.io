@@ -8,7 +8,7 @@ $(function(){
             $map_zoom = 10; /* ZOOM SETTING */
 
         // google map custom marker icon
-        var $marker_url = 'assets/img/map-marker.png';
+        var $marker_url = 'img/map-marker.png';
 
         // we define here the style of the map
         var style = [{
