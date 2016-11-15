@@ -884,9 +884,9 @@ span.navbar-trigger-close a:hover {
 /*---------------------------------------------------------------------*/
 /*  12. TESTIMONIALS SECTION
 /*---------------------------------------------------------------------*/
-#testimonials > .section-inner .parallax > .bcg {
+/*#testimonials > .section-inner .parallax > .bcg {
   background-image: url("../img/bg-testimonial.jpg");
-}
+}*/
 #testimonials > .section-inner .section-content .section-title {
   color: #b7ada4;
 }
