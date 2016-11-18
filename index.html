@@ -44,6 +44,16 @@
     <!--[if lt IE 9]>
     <script src="assets/plugins/modernizr.min.js"></script>
     <![endif]-->
+    <style>
+    @keyframes blink {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .is-typing::after {
+        content: '|';
+        animation: blink 500ms infinite;
+    }
+    </style>
 </head>
 
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
@@ -90,8 +100,8 @@
                                 <!-- //.logo -->
 
                                 <div class="intro-text text-center">
-                                    <h2>We Are Endata</h2>
-                                    <p class="lead">A Dallas based boutique software consulting company</p>
+                                    <h2>we <span id="typeHeader"></span>data</h2>
+                                    <p id="typeLead" class="lead"></p>
                                 </div>
                                 <!-- //.intro-text -->
 
@@ -1079,6 +1089,39 @@
     <script src="assets/js/component/portfolio.js"></script>
     <script src="assets/js/component/testimonials.js"></script>
     <script src="assets/js/component/animation.js"></script>
+
+    <!-- Theater -->
+    <script src="assets/js/component/theater.min.js"></script>
+    <script>
+    var theater = theaterJS()
+
+    theater
+        .on('type:start, erase:start', function () {
+        // add a class to actor's dom element when he starts typing/erasing
+        var actor = theater.getCurrentActor()
+        actor.$element.classList.add('is-typing')
+        })
+        .on('type:end, erase:end', function () {
+        // and then remove it when he's done
+        var actor = theater.getCurrentActor()
+        actor.$element.classList.remove('is-typing')
+        })
+
+    theater
+        .addActor('typeHeader', { accuracy: 1.0, speed: 0.5 })
+        .addActor('typeLead', { accuracy: 0.7, speed: 1.0 })
+
+    theater
+        .addScene(800)
+        .addScene('typeHeader:are En', 500)
+        .addScene('typeLead:a Dallas based boutique software consulting company', 400)
+        .addScene('typeHeader:make sense of your ', 1000)
+        .addScene('typeLead:using machine learning', 800)
+        .addScene('typeLead:and predictive data analytics', 800)
+        // .addScene('type1:I am', 200, '.', 200, '.', 200, '. ')
+        // .addScene('Your father!')
+        .addScene(theater.replay)
+    </script>
 
     <script type="text/javascript">
         $(function() {
