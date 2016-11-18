@@ -537,8 +537,8 @@ span.navbar-trigger-close a:hover {
 #intro {
   position: relative;
   width: 100%;
-  height: auto;
   color: #fff;
+  height: 650px;
 }
 #intro:before {
   position: absolute;
